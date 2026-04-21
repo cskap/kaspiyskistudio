@@ -11,13 +11,21 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0d0d0d 100%);
-    background-size: 300% 300%;
-    animation: darkShimmer 10s ease infinite;
-    font-family: 'Benzin', sans-serif;
+    background: linear-gradient(45deg, #000000 0%, #222222 25%, #111111 50%, #1a1a1a 75%, #000000 100%);
+    background-size: 400% 400%;
+    animation: fastShimmer 8s ease infinite;
+    font-family: 'Rajdhani', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@keyframes fastShimmer {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
 }
   /* Карточка по центру */
   .card {
