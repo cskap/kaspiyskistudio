@@ -1,4 +1,158 @@
-.link-btn:nth-child(1) { animation-delay: 0.1s; }
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"> <link rel="icon" href="images/3213.png" type="image/png">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"> <link rel="icon" href="images/8.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaspiyski Studio</title>
+<link href="Kaspiyski%20Studio_files/css2.css" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(45deg, #000000 0%, #222222 25%, #111111 50%, #1a1a1a 75%, #000000 100%);
+    background-size: 400% 400%;
+    animation: fastShimmer 8s ease infinite;
+    font-family: 'Rajdhani', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fastShimmer {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+  /* Карточка по центру */
+  .card {
+    text-align: center;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* Аватар */
+  .avatar-ring {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    overflow: hidden;
+  }
+  .avatar-ring img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+  }
+  .avatar-ring {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.avatar-ring:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+  /* Имя */
+  .name {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.14em;
+    margin-bottom: 25px;
+  }
+
+  .divider {
+    width: 40px; 
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    margin: 0 auto 28px;
+  }
+
+  /* Кнопки-ссылки */
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, #0f0f0f 0%, #1f1f1f 25%, #0f0f0f 50%, #1f1f1f 75%, #0f0f0f 100%);
+    background-size: 300% 300%;
+    background-position: 0% 0%;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: background-position 0.8s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-btn:hover {
+    background-position: 100% 100%;
+    border-color: rgba(255,255,255,0.3);
+    transform: translateX(5px); /* ← СДВИГ ВПРАВО */
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+}
+
+.link-icon { 
+    font-size: 1.1rem; 
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.link-btn:hover .link-icon {
+    opacity: 1;
+}
+
+  .footer {
+    margin-top: 36px;
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+  }
+
+  @keyframes darkShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.link-btn {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+    .link-btn:nth-child(1) { animation-delay: 0.1s; }
 .link-btn:nth-child(2) { animation-delay: 0.2s; }
 .link-btn:nth-child(3) { animation-delay: 0.3s; }
 .link-btn:nth-child(4) { animation-delay: 0.4s; }
