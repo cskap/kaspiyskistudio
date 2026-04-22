@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"> <link rel="icon" href="images/3213.png" type="image/png">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"> <link rel="icon" href="images/8.png" type="image/png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kaspiyski Studio</title>
@@ -120,7 +119,7 @@ body {
 .link-btn:hover {
     background-position: 100% 100%;
     border-color: rgba(255,255,255,0.3);
-    transform: translateX(5px); /* ← СДВИГ ВПРАВО */
+    transform: translateX(5px);
     box-shadow: 0 5px 25px rgba(0,0,0,0.5);
 }
 
@@ -141,12 +140,6 @@ body {
     color: rgba(255,255,255,0.25);
     text-transform: uppercase;
   }
-
-  @keyframes darkShimmer {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 
 .link-btn {
     opacity: 0;
@@ -171,10 +164,10 @@ body {
     }
 }
 
-/* Исправление конфликта — приоритет для hover */
 .link-btn:hover {
     transform: translateX(5px) !important;
 }
+
   /* Звёздное небо */
   .star-static {
     position: fixed;
@@ -196,7 +189,8 @@ body {
       opacity: var(--opacity);
       transform: scale(1);
     }
-   
+  }
+</style>
 </head>
 <body>
 
@@ -213,78 +207,59 @@ body {
       <span class="link-text">Студия</span>
     </a>
     <a class="link-btn" href="https://t.me/kaspiyski_work" target="_blank">
-
       <span class="link-text">Портфолио</span>
     </a>
     <a class="link-btn" href="https://t.me/kaspiyski_work/13" target="_blank">
-
       <span class="link-text">Прайс-Лист</span>
     </a>  
     <a class="link-btn" href="https://t.me/kaspiyski_rep" target="_blank">
-
       <span class="link-text">Отзывы</span>
     </a>  
     <a class="link-btn" href="https://t.me/KaspiyskiDesign" target="_blank">
-
       <span class="link-text">Канал</span>
     </a>  
     <a class="link-btn" href="https://t.me/ebiboby" target="_blank">
-
       <span class="link-text">Заказать</span>
     </a>  
   </div>
 
 <p class="footer">© 2025 Kaspiyski Studio</p>
 </div>
+
 <script>
-  // Создаём звёздное небо
   function createStarField() {
-    const starCount = 80; // Количество звёзд
-    
-    // Символы звёзд разного типа
+    const starCount = 80;
     const starSymbols = ['★', '☆', '✦', '✧', '✴', '✳'];
     
     for (let i = 0; i < starCount; i++) {
       const star = document.createElement('div');
       star.classList.add('star-static');
       
-      // Случайный символ звезды
       const symbol = starSymbols[Math.floor(Math.random() * starSymbols.length)];
       star.innerHTML = symbol;
       
-      // Случайный размер от 8px до 18px (шрифт)
       const size = Math.random() * 10 + 8;
       star.style.fontSize = size + 'px';
       
-      // Случайная позиция по всему экрану
       star.style.left = Math.random() * 100 + '%';
       star.style.top = Math.random() * 100 + '%';
       
-      // Случайная яркость при мерцании (0.3 - 1)
       const opacity = Math.random() * 0.7 + 0.3;
       star.style.setProperty('--opacity', opacity);
       
-      // Случайная скорость мерцания (2 - 8 секунд)
       const duration = Math.random() * 6 + 2;
       star.style.setProperty('--duration', duration + 's');
       
-      // Случайная задержка начала мерцания (0 - 5 секунд)
       const delay = Math.random() * 5;
       star.style.setProperty('--delay', delay + 's');
       
-      // Немного случайного цвета (белый, золотой, голубоватый)
-      const colors = [
-        '#ffffff',
-        '#fff8e7',
-        '#ffe4b5',
-        '#e6f0ff'
-      ];
+      const colors = ['#ffffff', '#fff8e7', '#ffe4b5', '#e6f0ff'];
       star.style.color = colors[Math.floor(Math.random() * colors.length)];
       
       document.body.appendChild(star);
     }
+  }
   
-  // Запускаем создание звёзд после загрузки страницы
   window.addEventListener('DOMContentLoaded', createStarField);
 </script>
 </body></html>
