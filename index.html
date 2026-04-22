@@ -178,25 +178,25 @@ body {
   /* Звёздное небо */
   .star-static {
     position: fixed;
-    background: white;
-    border-radius: 50%;
+    color: white;
     pointer-events: none;
     z-index: 9998;
     opacity: 0;
     animation: twinkle var(--duration) ease-in-out infinite;
     animation-delay: var(--delay);
+    text-shadow: 0 0 2px rgba(255,255,200,0.8);
   }
   
   @keyframes twinkle {
     0%, 100% {
       opacity: 0;
-      transform: scale(0.8);
+      transform: scale(0.7);
     }
     50% {
       opacity: var(--opacity);
       transform: scale(1);
     }
-</style>
+  }
 </head>
 <body>
 
@@ -241,14 +241,20 @@ body {
   function createStarField() {
     const starCount = 80; // Количество звёзд
     
+    // Символы звёзд разного типа
+    const starSymbols = ['★', '☆', '✦', '✧', '✴', '✳'];
+    
     for (let i = 0; i < starCount; i++) {
       const star = document.createElement('div');
       star.classList.add('star-static');
       
-      // Случайный размер от 1px до 4px
-      const size = Math.random() * 3 + 1;
-      star.style.width = size + 'px';
-      star.style.height = size + 'px';
+      // Случайный символ звезды
+      const symbol = starSymbols[Math.floor(Math.random() * starSymbols.length)];
+      star.innerHTML = symbol;
+      
+      // Случайный размер от 8px до 18px (шрифт)
+      const size = Math.random() * 10 + 8;
+      star.style.fontSize = size + 'px';
       
       // Случайная позиция по всему экрану
       star.style.left = Math.random() * 100 + '%';
@@ -266,13 +272,14 @@ body {
       const delay = Math.random() * 5;
       star.style.setProperty('--delay', delay + 's');
       
-      // Немного случайного цвета (белый, слегка голубой или золотой)
+      // Немного случайного цвета (белый, золотой, голубоватый)
       const colors = [
-        'rgba(255, 255, 255, 1)',
-        'rgba(255, 240, 200, 1)',
-        'rgba(200, 220, 255, 1)'
+        '#ffffff',
+        '#fff8e7',
+        '#ffe4b5',
+        '#e6f0ff'
       ];
-      star.style.background = colors[Math.floor(Math.random() * colors.length)];
+      star.style.color = colors[Math.floor(Math.random() * colors.length)];
       
       document.body.appendChild(star);
     }
