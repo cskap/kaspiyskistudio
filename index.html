@@ -175,7 +175,27 @@ body {
 .link-btn:hover {
     transform: translateX(5px) !important;
 }
-
+  /* Звёздное небо */
+  .star-static {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;
+    animation: twinkle var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+  
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: var(--opacity);
+      transform: scale(1);
+    }
 </style>
 </head>
 <body>
@@ -216,6 +236,49 @@ body {
 
 <p class="footer">© 2025 Kaspiyski Studio</p>
 </div>
-
-
+<script>
+  // Создаём звёздное небо
+  function createStarField() {
+    const starCount = 80; // Количество звёзд
+    
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star-static');
+      
+      // Случайный размер от 1px до 4px
+      const size = Math.random() * 3 + 1;
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+      
+      // Случайная позиция по всему экрану
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      
+      // Случайная яркость при мерцании (0.3 - 1)
+      const opacity = Math.random() * 0.7 + 0.3;
+      star.style.setProperty('--opacity', opacity);
+      
+      // Случайная скорость мерцания (2 - 8 секунд)
+      const duration = Math.random() * 6 + 2;
+      star.style.setProperty('--duration', duration + 's');
+      
+      // Случайная задержка начала мерцания (0 - 5 секунд)
+      const delay = Math.random() * 5;
+      star.style.setProperty('--delay', delay + 's');
+      
+      // Немного случайного цвета (белый, слегка голубой или золотой)
+      const colors = [
+        'rgba(255, 255, 255, 1)',
+        'rgba(255, 240, 200, 1)',
+        'rgba(200, 220, 255, 1)'
+      ];
+      star.style.background = colors[Math.floor(Math.random() * colors.length)];
+      
+      document.body.appendChild(star);
+    }
+  }
+  
+  // Запускаем создание звёзд после загрузки страницы
+  window.addEventListener('DOMContentLoaded', createStarField);
+</script>
 </body></html>
