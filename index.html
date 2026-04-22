@@ -228,8 +228,8 @@ body {
 
 <script>
   function createStarField() {
-    const starCount = 80;
-    const starSymbols = ['★', '☆', '✦', '✧', '✴', '✳'];
+    const starCount = 35; // Было 80, стало 35 (меньше)
+    const starSymbols = ['★', '☆', '✦', '✧'];
     
     for (let i = 0; i < starCount; i++) {
       const star = document.createElement('div');
@@ -238,19 +238,22 @@ body {
       const symbol = starSymbols[Math.floor(Math.random() * starSymbols.length)];
       star.innerHTML = symbol;
       
-      const size = Math.random() * 10 + 8;
+      // Размер звёзд (чуть меньше)
+      const size = Math.random() * 12 + 6; // 6-18px
       star.style.fontSize = size + 'px';
       
-      star.style.left = Math.random() * 100 + '%';
-      star.style.top = Math.random() * 100 + '%';
+      // Разброс по всему экрану с большим расстоянием
+      star.style.left = Math.random() * 95 + 2.5 + '%';
+      star.style.top = Math.random() * 95 + 2.5 + '%';
       
-      const opacity = Math.random() * 0.7 + 0.3;
+      const opacity = Math.random() * 0.6 + 0.3; // Яркость
       star.style.setProperty('--opacity', opacity);
       
-      const duration = Math.random() * 6 + 2;
+      // Медленное мерцание
+      const duration = Math.random() * 5 + 3; // 3-8 секунд
       star.style.setProperty('--duration', duration + 's');
       
-      const delay = Math.random() * 5;
+      const delay = Math.random() * 8; // Задержка до 8 секунд
       star.style.setProperty('--delay', delay + 's');
       
       const colors = ['#ffffff', '#fff8e7', '#ffe4b5', '#e6f0ff'];
